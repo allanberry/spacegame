@@ -1,0 +1,46 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spacegame{% if view.window_title %} | {{ view.window_title | title }}{% endif %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
+
+    {% block js %}
+        <script src="{% static 'spacegame/js/base.js' %}"></script>
+    {% endblock js %}
+
+    {% block css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'spacegame/css/base.css' %}" />
+    {% endblock css %}
+</head>
+<body>
+    <header>
+    {% block header %}
+        <h2 id="site_title"><a href="{% url 'home' %}">Spacegame</a></h2>
+    {% endblock header %}
+    </header>
+
+    <main>
+    {% block main %}
+        <h1 id="page_title">{{ view.page_title }}</h1>
+
+        <section id="content">
+        {% block content %}
+        {% endblock content %}
+        </section>
+    {% endblock main %}
+    </main>
+
+    <nav>
+    {% block nav %}
+    {% endblock nav %}
+    </nav>
+
+    <footer>
+    {% block footer %}
+    {% endblock footer %}
+    </footer>
+</body>
+</html>
