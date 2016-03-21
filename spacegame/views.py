@@ -32,3 +32,12 @@ class HomeView(ViewMixin, TemplateView):
 
     def page_title(self):
         return 'Welcome to Spacegame'
+
+
+class GameView(ViewMixin, TemplateView):
+    '''
+    The game page.
+    '''
+    template_name = "spacegame/game.html"
+    def window_title(self):
+        return 'Game On'
